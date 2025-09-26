@@ -1,1 +1,19 @@
-r
+import  capos.*
+
+
+describe "test parte 1"{
+test "ejemplo 1"{
+    
+    // Levanta dos artefactos permitidos
+        ronlando.encontrar(espadaDelDestino)
+        ronlando.encontrar(libroDeHechizos)
+
+        // Intentar levantar un tercero debería fallar
+        assert.throwsException({ronlando.encontrar(collarDivino)})
+
+        // Inventario debería seguir teniendo solo 2
+        assert.equals(ronlando.artefactosQueLleva().size(), 2)
+
+}
+
+}
