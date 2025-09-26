@@ -29,18 +29,41 @@ object ronlando{
             inventario.add(artefacto)
             historialDeInventarios.add(artefacto)
        
-        }
-
-    
+        }  
 
 
     method puedoLevantar() {
          if(inventario.size() >= capacidad) {
             self.error("supero la cantidad")
         }
-    }
-    
+    }    
 
     method artefactosQueLleva() = inventario
 
+    method llegarAlCastillo(){
+        castilloDePiedra.guardarEnElCofre(self.artefactosQueLleva())
+        
+    }
+    method limpiarInventario(){
+        inventario.removeAll(inventario)
+    }
+
+ 
+}//fin object ronlando
+
+
+object castilloDePiedra{
+
+ const cofreDeArtefactos = []
+
+ method guardarEnElCofre(artefactos){
+    cofreDeArtefactos.addAll(artefactos)
+ }
+
+ method todosLosArtefactos(){
+    return cofreDeArtefactos.clone()
+ }
+
+
 }
+
