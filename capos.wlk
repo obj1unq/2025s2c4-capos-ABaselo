@@ -48,6 +48,11 @@ object ronlando{
         inventario.removeAll(inventario)
     }
 
+     method artefactosQuePoseen() = inventario + castilloDePiedra.artefactosQueLleva()
+
+     method loQuePosee(artefacto) = self.artefactosQuePoseen().contains(artefacto)
+     
+    method noPosee(artefacto) = not self.artefactosQuePoseen().contains(artefacto)
  
 }//fin object ronlando
 
@@ -64,6 +69,10 @@ object castilloDePiedra{
  method todosLosArtefactos(){
     return cofreDeArtefactos.clone()
  }
+
+ method artefactosQueLleva() = cofreDeArtefactos
+
+
 
 
 }

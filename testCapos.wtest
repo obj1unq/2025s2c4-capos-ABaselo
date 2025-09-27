@@ -1,7 +1,7 @@
 import  capos.*
 
 
-describe "test parte 1"{
+describe "test de capos"{
 
     method inicialize(){
     
@@ -9,7 +9,7 @@ describe "test parte 1"{
     ronlando.encontrar(libroDeHechizos)
 
     }
-test "ejemplo 1"{
+test "Test 1"{
     
     // Levanta dos artefactos permitidos
         ronlando.encontrar(espadaDelDestino)
@@ -22,16 +22,34 @@ test "ejemplo 1"{
         assert.equals(ronlando.artefactosQueLleva().size(), 2)
 
 }
-test "Test parte 2"{
+test "Test 2"{
    self.inicialize()
    assert.equals(ronlando.artefactosQueLleva().size(), 2)
    ronlando.llegarAlCastillo()   
-   ronlando.encontrar(collarDivino) 
-   assert.equals(ronlando.artefactosQueLleva().size(), 1)  
+   ronlando.encontrar(armaduraDeAceroValyrio) 
+   assert 
    ronlando.llegarAlCastillo()
    assert.equals(ronlando.artefactosQueLleva().size(), 0)  
  }
 
+
+test "Test 3"{
+
+   ronlando.encontrar(espadaDelDestino)
+   ronlando.encontrar(collarDivino)
+   assert.equals(ronlando.artefactosQueLleva().size(), 2)
+   assert.that(ronlando.loQuePosee(espadaDelDestino))
+   assert.that(ronlando.loQuePosee(espadaDelDestino))
+   
+   ronlando.llegarAlCastillo()  
+
+   ronlando.encontrar(armaduraDeAceroValyrio)
+   assert.that(ronlando.loQuePosee(armaduraDeAceroValyrio)) 
+   assert.equals(ronlando.artefactosQueLleva().size(), 1)
+
+   assert.that(ronlando.noPosee(libroDeHechizos))   
+   
+ }
 
 
 }
