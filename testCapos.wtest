@@ -1,1 +1,71 @@
-r
+import  capos.*
+
+
+describe "test de capos"{
+
+    method inicialize(){
+    
+    ronlando.encontrar(espadaDelDestino)
+    ronlando.encontrar(libroDeHechizos)
+
+    }
+test "Test 1"{
+    
+    // Levanta dos artefactos permitidos
+        ronlando.encontrar(espadaDelDestino)
+        ronlando.encontrar(libroDeHechizos)
+
+         //Intentar levantar un tercero debería fallar
+        assert.throwsException({ronlando.encontrar(collarDivino)})
+
+        //Inventario debería seguir teniendo solo 2
+        assert.equals(ronlando.artefactosQueLleva().size(), 2)
+
+}
+test "Test 2"{
+   self.inicialize()
+   assert.equals(ronlando.artefactosQueLleva().size(), 2)
+   ronlando.llegarAlCastillo()   
+   ronlando.encontrar(armaduraDeAceroValyrio) 
+   assert 
+   ronlando.llegarAlCastillo()
+   assert.equals(ronlando.artefactosQueLleva().size(), 0)  
+ }
+
+
+test "Test 3"{
+
+   ronlando.encontrar(espadaDelDestino)
+   ronlando.encontrar(collarDivino)
+   assert.equals(ronlando.artefactosQueLleva().size(), 2)
+   assert.that(ronlando.loQuePosee(espadaDelDestino))
+   assert.that(ronlando.loQuePosee(espadaDelDestino))
+   
+   ronlando.llegarAlCastillo()  
+
+   ronlando.encontrar(armaduraDeAceroValyrio)
+   assert.that(ronlando.loQuePosee(armaduraDeAceroValyrio)) 
+   assert.equals(ronlando.artefactosQueLleva().size(), 1)
+
+   assert.that(ronlando.noPosee(libroDeHechizos))   
+   
+ }
+
+test "Test 4"{
+ 
+ self.inicialize()
+ assert.equals(ronlando.artefactosQueLleva().size(), 2)
+ assert.throwsException( {ronlando.encontrar(collarDivino)})//lanza la excepcion ya que solo puede tener dos, lo contenemos en un bloque
+ //se crea el historial ya que tuvo contacto con el artefacto, pero no lo agrego.
+ ronlando.historialDeInventarios().add(collarDivino)
+ ronlando.llegarAlCastillo()
+ ronlando.encontrar(armaduraDeAceroValyrio)
+ ronlando.encontrar(collarDivino)
+
+//comparamos el recorrido con lo que estuvo trabajando
+ assert.equals(ronlando.historialDeInventarios(), [espadaDelDestino, libroDeHechizos, collarDivino, armaduraDeAceroValyrio, collarDivino])
+
+
+}
+
+}
