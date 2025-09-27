@@ -1,24 +1,15 @@
 import wollok.vm.*
-object artefacto {
-  
-}
-object espadaDelDestino{
-    
-}
+object artefacto {}
+object espadaDelDestino{}
 
-object libroDeHechizos{
-  
-}
+object libroDeHechizos{}
 
-object collarDivino{
-  
-}
+object collarDivino{}
 
-object armaduraDeAceroValyrio{
-  
-}
+object armaduraDeAceroValyrio{}
 
 object ronlando{
+
     const  inventario = []
     const  capacidad = 2
     const  historialDeInventarios = [] 
@@ -29,17 +20,13 @@ object ronlando{
             self.puedoLevantar()
             inventario.add(artefacto)
             historialDeInventarios.add(artefacto)              
-           
-           
-        }  
-
+    }
 
     method puedoLevantar() {
          
          if(inventario.size() >= capacidad) {
             self.error("supero la cantidad, debe almacenar en el")
-        }        
-       
+        }         
     }    
     method artefactosQueLleva() = inventario
 
@@ -51,9 +38,9 @@ object ronlando{
         inventario.removeAll(inventario)
     }
 
-     method artefactosQuePoseen() = inventario + castilloDePiedra.artefactosQueLleva()
+    method artefactosQuePoseen() = inventario + castilloDePiedra.artefactosQueLleva()
 
-     method loQuePosee(artefacto) = self.artefactosQuePoseen().contains(artefacto)
+    method loQuePosee(artefacto) = self.artefactosQuePoseen().contains(artefacto)
      
     method noPosee(artefacto) = not self.artefactosQuePoseen().contains(artefacto)
 
@@ -77,6 +64,5 @@ object castilloDePiedra{
 
  method artefactosQueLleva() = cofreDeArtefactos
 
-
-}
+}//fin objeto castillo
 
