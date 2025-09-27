@@ -25,19 +25,22 @@ object ronlando{
     
     
     method encontrar(artefacto){
+           
             self.puedoLevantar()
             inventario.add(artefacto)
-            historialDeInventarios.add(artefacto)
-       
+            historialDeInventarios.add(artefacto)              
+           
+           
         }  
 
 
     method puedoLevantar() {
+         
          if(inventario.size() >= capacidad) {
-            self.error("supero la cantidad")
-        }
+            self.error("supero la cantidad, debe almacenar en el")
+        }        
+       
     }    
-
     method artefactosQueLleva() = inventario
 
     method llegarAlCastillo(){
@@ -53,6 +56,8 @@ object ronlando{
      method loQuePosee(artefacto) = self.artefactosQuePoseen().contains(artefacto)
      
     method noPosee(artefacto) = not self.artefactosQuePoseen().contains(artefacto)
+
+    method historialDeInventarios() = historialDeInventarios
  
 }//fin object ronlando
 
@@ -71,8 +76,6 @@ object castilloDePiedra{
  }
 
  method artefactosQueLleva() = cofreDeArtefactos
-
-
 
 
 }
