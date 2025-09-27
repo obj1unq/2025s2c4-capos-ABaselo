@@ -58,6 +58,7 @@ object castilloDePiedra{
 
  method guardarEnElCofre(artefactos){
     cofreDeArtefactos.addAll(artefactos)
+    ronlando.limpiarInventario()
  }
 
  method todosLosArtefactos(){

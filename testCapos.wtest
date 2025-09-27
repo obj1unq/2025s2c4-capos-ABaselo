@@ -2,6 +2,13 @@ import  capos.*
 
 
 describe "test parte 1"{
+
+    method inicialize(){
+    
+    ronlando.encontrar(espadaDelDestino)
+    ronlando.encontrar(libroDeHechizos)
+
+    }
 test "ejemplo 1"{
     
     // Levanta dos artefactos permitidos
@@ -15,6 +22,16 @@ test "ejemplo 1"{
         assert.equals(ronlando.artefactosQueLleva().size(), 2)
 
 }
+test "Test parte 2"{
+   self.inicialize()
+   assert.equals(ronlando.artefactosQueLleva().size(), 2)
+   ronlando.llegarAlCastillo()   
+   ronlando.encontrar(collarDivino) 
+   assert.equals(ronlando.artefactosQueLleva().size(), 1)  
+   ronlando.llegarAlCastillo()
+   assert.equals(ronlando.artefactosQueLleva().size(), 0)  
+ }
+
 
 
 }
